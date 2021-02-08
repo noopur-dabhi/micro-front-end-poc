@@ -30,11 +30,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <mat-toolbar>
-      <span>Micro-Front-End POC</span>
-    </mat-toolbar>
-  </header>
+  <mat-toolbar>
+    <span>Micro-Front-End POC</span>
+  </mat-toolbar>
   <app-root></app-root>
 
   <script>
@@ -49,7 +47,7 @@
       singleSpa.registerApplication(
         'character-info',
         () => System.import('character-info'),
-        location => location.pathname.startsWith('/')
+        location => location.pathname.startsWith('/character-info')
       );
 
       singleSpa.start();
