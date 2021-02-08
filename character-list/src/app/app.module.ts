@@ -15,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 
-const routes: Routes = [];
+const routes: Routes = [{ path: '**', component: AppComponent }];
 
 @NgModule({
   declarations: [
