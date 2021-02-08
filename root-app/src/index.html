@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>RootApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "character-list": "http://localhost:4201/main.js",
+        "character-info": "http://localhost:3000/static/js/bundle.js",
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@4.3.7/lib/system/single-spa.min.js"
+      }
+    }
+  </script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@4.3.7/lib/system/single-spa.min.js" as="script" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/single-spa-html"></script>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.8.0/dist/import-map-overrides.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/system.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/amd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/named-exports.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/named-register.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/5.0.0/extras/use-default.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <mat-toolbar>
+      <span>Micro-Front-End POC</span>
+    </mat-toolbar>
+  </header>
+  <app-root></app-root>
+
+  <script>
+    System.import('single-spa').then(function (singleSpa) {
+
+      singleSpa.registerApplication(
+        'character-list',
+        () => System.import('character-list'),
+        location => location.pathname.startsWith('/')
+      );
+
+      singleSpa.registerApplication(
+        'character-info',
+        () => System.import('character-info'),
+        location => location.pathname.startsWith('/')
+      );
+
+      singleSpa.start();
+    })
+  </script>
+
+  Test
+
+  <div id="single-spa-application:character-list"></div>
+  <div id="single-spa-application:character-info"></div>
+
+  <import-map-overrides-full></import-map-overrides-full>
+</body>
+</html>

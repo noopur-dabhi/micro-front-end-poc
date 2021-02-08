@@ -1,0 +1,12 @@
+<ng-container *ngFor="let character of characters">
+    <mat-card class="character-card">
+      <mat-card-header>
+        <mat-card-title>{{character.character}}</mat-card-title>
+        <mat-card-subtitle>{{character.name}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="getCharacterImage(character)" alt="Photo of marvel character">
+      <mat-card-content>
+        <p>{{character.description}}</p>
+      </mat-card-content>
+    </mat-card>
+</ng-container>
