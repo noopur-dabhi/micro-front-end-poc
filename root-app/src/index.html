@@ -7,7 +7,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  
+  <script src="/assets/data/store.js"></script>
   <script type="systemjs-importmap">
     {
       "imports": {
@@ -30,10 +31,11 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <mat-toolbar>
-    <span>Micro-Front-End POC</span>
-  </mat-toolbar>
-  <app-root></app-root>
+  <p>
+    <mat-toolbar>
+      <span>Micro-Front-End POC</span>
+    </mat-toolbar>
+  </p>
 
   <script>
     System.import('single-spa').then(function (singleSpa) {

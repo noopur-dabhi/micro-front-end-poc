@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Character } from '../../models/character.model';
 import { CharacterService } from '../../services/character.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-characters',
@@ -14,7 +15,8 @@ export class CharactersComponent implements OnInit, OnDestroy {
   charactersData$: Subscription;
 
   constructor(
-    private _characterService: CharacterService
+    private _characterService: CharacterService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -26,7 +28,14 @@ export class CharactersComponent implements OnInit, OnDestroy {
   }
 
   getCharacterImage = (character) => {
-    return '../../assets/images/' + character.character + '.jpeg';
+    character.image = '../../assets/images/' + character.character + '.jpeg';
+    return character.image;
+  }
+
+  setCharacter = (character) => {
+    console.log('****setting character', character);
+    (window as any).store.character.setCharacter(character);
+    this._router.navigate(['/character-info']);
   }
 
   ngOnDestroy(): void {
