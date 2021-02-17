@@ -1,14 +1,24 @@
 # micro-front-end-poc
 
-Run steps :
+## Steps
 
-cd character-info
-npm start
+**character-info - react (micro-app)**
 
-cd character-list
-npm run serve:single-spa:character-list
+**Run character-info at http://localhost:3000**
+>cd character-info
+>
+>npm start
 
-cd root-app
-ng serve
+**character-list : angular (micro-app)**
 
-go to http://localhost:4000
+**Run character-list at http://localhost:4201**
+>cd character-list
+>
+>npm run serve:single-spa:character-list
+
+**root-app - angular (main application)**
+
+**Run root-app at http://localhost:4200**
+>cd root-app
+>
+>ng serve
